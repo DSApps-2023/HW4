@@ -52,7 +52,7 @@ def strip_s(s):
 films_actors_edgelist['actor'] = films_actors_edgelist.apply(lambda s: strip_s(s['actor']), axis=1)
 
 # bad patterns, in spite of our efforts
-for pattern in ['\.', 'and', '\(', '\n', '[222]', '\)', ',', 'Documentary']:
+for pattern in ['\.', 'and', '\(', '\n', '[222]', '\)', ',', 'Documentary', 'Family']:
   remove_rows = films_actors_edgelist['actor'].str.contains(pattern, na=False)
   print('pattern %s: removing %d rows' % (pattern, remove_rows.sum()))
   films_actors_edgelist = films_actors_edgelist[~remove_rows]
